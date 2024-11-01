@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .product-images {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .product-img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        .product-img.active {
+            display: block;
+        }
+
+        .pagination-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .pagination-dots .dot {
+            width: 10px;
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .pagination-dots .dot.active {
+            background-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <!-- Product Image Section with Pagination -->
+            <div class="product-images">
+                <img src="https://www-prd-kr.gentlemonster.com/media/catalog/product/cache/6c6f229b8a7ab97f51028776641e27d1/1/1/11001_TTA_02_2.jpg" class="product-img active" alt="Product Image 1">
+                <img src="https://www-prd-kr.gentlemonster.com/media/catalog/product/cache/6c6f229b8a7ab97f51028776641e27d1/1/1/11001_TTA_02_1.jpg" class="product-img" alt="Product Image 2">
+                <img src="https://www-prd-kr.gentlemonster.com/media/catalog/product/cache/6c6f229b8a7ab97f51028776641e27d1/1/1/11001_TTA_02_3.jpg" class="product-img" alt="Product Image 3">
+                <img src="https://www-prd-kr.gentlemonster.com/media/catalog/product/cache/6c6f229b8a7ab97f51028776641e27d1/1/1/11001_TTA_02_4.jpg" class="product-img" alt="Product Image 4">
+                
+                <!-- Pagination Dots -->
+                <div class="pagination-dots">
+                    <div class="dot active" data-target="0"></div>
+                    <div class="dot" data-target="1"></div>
+                    <div class="dot" data-target="2"></div>
+                    <div class="dot" data-target="3"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <!-- Product Info -->
+            <h2>Ttl 02</h2>
+            <p class="text-muted">Product Code: 11001</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Duis ac odio non ligula commodo commodo. Nullam euismod lacus ac arcu facilisis, ac elementum massa gravida.</p>
+            
+            <!-- Price -->
+            <h4>₱18,000.00</h4>
+            
+            <!-- Ratings -->
+            <div class="ratings">
+                <span class="text-warning">★★★★☆</span>
+                <span>(4.5/5)</span>
+            </div>
+            
+            <!-- Add to Cart Button -->
+            <a href="#" class="btn btn-dark mt-3">Add to Cart</a>
+
+            <!-- Reviews Section -->
+            <div class="mt-4">
+                <h5>Customer Reviews</h5>
+                <div class="review mt-3">
+                    <p><strong>Jane Doe</strong> - <span class="text-warning">★★★★★</span></p>
+                    <p>"This product is amazing! I love it so much, totally worth the price!"</p>
+                </div>
+                <div class="review mt-3">
+                    <p><strong>John Smith</strong> - <span class="text-warning">★★★★☆</span></p>
+                    <p>"Great quality, but I wish it came in more colors."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Product Image Swapping on Pagination Dot Click
+    const dots = document.querySelectorAll('.dot');
+    const images = document.querySelectorAll('.product-img');
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            // Remove active class from all images and dots
+            images.forEach(img => img.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+
+            // Add active class to the clicked dot and corresponding image
+            images[index].classList.add('active');
+            dot.classList.add('active');
+        });
+    });
+</script>
+
+</body>
+</html>
